@@ -6,7 +6,7 @@ Theresia.ai is the new public home and product foundation for our autonomous res
 
 ## What We Are Building
 
-The immediate priority is a high-quality landing page for the Theresia.ai rebrand. It should explain the product clearly, make autonomous research feel credible and useful, and convert visitors into early users, calls, or waitlist signups.
+The immediate priority is a focused one-screen hero landing page for the Theresia.ai rebrand. It should explain the product clearly, make autonomous research feel credible and useful, and convert visitors into early users or calls.
 
 The longer-term product foundation should support research workflows, user-facing product surfaces, and Postgres-backed data persistence.
 
@@ -15,8 +15,9 @@ The longer-term product foundation should support research workflows, user-facin
 We like the theme and structure of [`search-party-next.vercel.app`](https://search-party-next.vercel.app/). Use it as inspiration for the landing page mood and information architecture:
 
 - confident SaaS hero with a direct value proposition and visible CTA
-- polished navigation, compact sections, and strong first-screen clarity
-- modular feature storytelling for agents, insights, actions, and workflows
+- centered Theresia branding instead of a full navigation bar
+- strong first-screen clarity without additional homepage sections
+- product storytelling through hero copy, visual system, and CTAs
 - premium, editorial product feel with crisp copy and generous spacing
 - content or proof sections that make the product feel active and credible
 
@@ -28,14 +29,15 @@ Do not copy Search Party branding, copy, images, or layout one-to-one. Theresia 
 - Next.js
 - TypeScript
 - Postgres
+- GitHub Pages static deployment
 
 Prefer the Next.js App Router, typed server boundaries, and a structure that can grow from landing page to full product.
 
 ## Initial Implementation Plan
 
 1. Scaffold the Next.js app with TypeScript.
-2. Build the first landing page under `src/app/`.
-3. Add reusable UI sections under `src/components/`.
+2. Build the first hero-only landing page under `src/app/`.
+3. Add reusable UI visuals under `src/components/`.
 4. Store brand assets, screenshots, and Open Graph images in `public/`.
 5. Add Postgres integration when the product surface needs persistence.
 6. Add tests, linting, and type checks before production deployment.
@@ -49,6 +51,8 @@ Once `package.json` exists, keep these commands available:
 - `npm run lint`: run lint checks.
 - `npm run typecheck`: validate TypeScript.
 - `npm test`: run the test suite.
+
+`next.config.ts` is configured with `output: "export"` so the build emits a static site in `out/` for GitHub Pages. The deployment workflow lives in `.github/workflows/deploy.yml`.
 
 ## Repository Notes
 

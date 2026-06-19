@@ -4,7 +4,7 @@
 Theresia is "Autonomous Research by Isar Innovations". This repository is the new Theresia.ai codebase and rebrand of the technical product currently visible at `rsrx.de`. Prioritize a polished landing page and a production-ready research product foundation.
 
 ## Landing Page & Design Direction
-The visual reference is `https://search-party-next.vercel.app/`. Use it for direction: confident SaaS hero, clear CTA, modular feature sections, agent/workflow storytelling, and polished footer. Do not copy Search Party branding, copy, images, or layout. Theresia should feel premium, research-oriented, credible, and tied to Isar Innovations.
+The current homepage should be hero-only: centered Theresia branding at the top, one strong hero section, and a footer with the Impressum link. The visual reference is `https://search-party-next.vercel.app/`, but use it only for premium SaaS tone, clarity, and CTA treatment. Do not copy Search Party branding, copy, images, or layout.
 
 ## Project Structure & Module Organization
 This repository is newly initialized. Use this structure as it grows:
@@ -28,6 +28,8 @@ Keep these commands available once `package.json` exists:
 - `npm run typecheck`: run TypeScript without emitting files.
 - `npm test`: run the test suite.
 - `npm run db:migrate`: apply Postgres migrations.
+
+The site targets GitHub Pages via static export. Keep `next.config.ts` export-safe and avoid runtime-only server features on public routes.
 
 ## Coding Style & Naming Conventions
 Use TypeScript throughout. Prefer function components, explicit server/client boundaries, and typed data access. Name React components in `PascalCase`, hooks as `useThing`, utilities in `camelCase`, and route folders in lowercase kebab-case. Use Prettier and ESLint.
