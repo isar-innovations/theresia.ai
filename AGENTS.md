@@ -6,6 +6,9 @@ Theresia is "Autonomous Research by Isar Innovations". This repository is the ne
 ## Landing Page & Design Direction
 The current homepage should be hero-only: centered Theresia branding at the top, one strong hero section, and a footer with the Impressum link. The visual reference is `https://search-party-next.vercel.app/`, but use it only for premium SaaS tone, clarity, and CTA treatment. Do not copy Search Party branding, copy, images, or layout.
 
+## Specialized Subagents
+Use `.claude/agents/visual-motion-director.md` for hero visuals, animation systems, motion polish, and any landing page visual that feels too generic or amateurish. This agent owns the premium visual storytelling standard for Theresia: problem in, many research paths, weak paths filtered out, stable evidence-backed paths leading to market opportunity.
+
 ## Project Structure & Module Organization
 This repository is newly initialized. Use this structure as it grows:
 

@@ -1,6 +1,6 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { ResearchVisual } from "@/components/ResearchVisual";
 
 export default function Home() {
   return (
@@ -9,42 +9,29 @@ export default function Home() {
         <div className="site-shell">
           <header className="top-brand">
             <Link className="brand brand-centered" href="#top" aria-label="Theresia Start">
-              <span className="brand-mark">T</span>
-              <span>
-                <strong>Theresia.ai</strong>
-                <em>by Isar Innovations</em>
-              </span>
+              <Image
+                className="brand-logo"
+                src="/theresia-mark.svg"
+                alt="Theresia.ai"
+                width={72}
+                height={72}
+                priority
+                unoptimized
+              />
             </Link>
           </header>
 
-          <div className="hero-grid">
-            <div className="hero-copy">
-              <div className="eyebrow">
-                <Sparkles size={16} aria-hidden="true" />
-                Autonomous Research Board
-              </div>
-              <h1>Forschung wird steuerbar, wenn der Pfad sichtbar bleibt.</h1>
-              <p className="hero-lead">
-                Theresia verbindet Quellen, offene Fragen, Belege und nächste Tests zu einem
-                Arbeitsboard. Keine Black-Box-Antworten, sondern nachvollziehbare Recherche mit
-                Evidenzspur.
-              </p>
-              <div className="hero-actions">
-                <a className="primary-button" href="https://rsrx.de/">
-                  <span>Live Board ansehen</span>
-                  <ArrowRight size={18} aria-hidden="true" />
-                </a>
-                <a className="secondary-button" href="mailto:info@isar-innovations.dev">
-                  Demo anfragen
-                </a>
-              </div>
-              <div className="signal-row" aria-label="Produktsignale">
-                <span>EU Betrieb</span>
-                <span>Quellen · Belege · Tests</span>
-                <span>Trace by design</span>
-              </div>
+          <div className="hero-content">
+            <h1>Agentische Forschung macht aus ungelösten Problemen neue Marktchancen.</h1>
+            <p className="hero-lead">
+              Forschung ist der Hebel, um Wege zu finden, die der Wettbewerb noch nicht sieht.
+            </p>
+            <div className="hero-actions">
+              <a className="primary-button" href="mailto:info@isar-innovations.dev">
+                <span>Kontakt aufnehmen</span>
+                <ArrowRight size={18} aria-hidden="true" />
+              </a>
             </div>
-            <ResearchVisual />
           </div>
         </div>
       </section>

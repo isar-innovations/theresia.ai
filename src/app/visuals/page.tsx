@@ -1,10 +1,19 @@
 import Link from "next/link";
-import { HeroIllustration, visualDirections } from "@/components/HeroIllustrations";
+import { ResearchVisual } from "@/components/ResearchVisual";
 
 export const metadata = {
-  title: "Hero Visual Directions - Theresia.ai",
-  description: "Fünf visuelle Richtungen für die Theresia.ai Hero Illustration.",
+  title: "Hero Research Field - Theresia.ai",
+  description: "Art Direction für das Theresia.ai Hero-Research-Field Visual.",
 };
+
+const researchVisualDirections = [
+  {
+    id: "hero-field",
+    title: "Hero Research Field",
+    intent:
+      "Ein randloses Hero-System: ein großes Problem startet viele Forschungsfelder, schwache Spuren sterben aus, wenige stabile Pfade laden rechts eine große Lösung auf.",
+  },
+] as const;
 
 export default function VisualsPage() {
   return (
@@ -14,22 +23,25 @@ export default function VisualsPage() {
           <Link className="back-link" href="/">
             Zurück zur Startseite
           </Link>
-          <h1>Fünf Richtungen für die Hero-Illustration.</h1>
+          <h1>Hero Research Field für die Research-Story.</h1>
           <p>
-            Jede Variante ist als echte, responsive UI-Illustration gebaut. Wir können eine davon
-            übernehmen oder zwei Richtungen kombinieren.
+            Das Visual nutzt die gesamte Hero-Fläche: ein großer Problemkreis läuft links unten in
+            den Rand, viele Forschungswege streuen aus, schwache Spuren sterben aus, wenige stabile
+            Pfade laden rechts eine große Lösung auf.
           </p>
         </header>
 
         <section className="visual-directions" aria-label="Hero Illustration Varianten">
-          {visualDirections.map((direction, index) => (
+          {researchVisualDirections.map((direction, index) => (
             <article className="visual-direction-card" key={direction.id}>
               <div className="direction-copy">
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <h2>{direction.title}</h2>
                 <p>{direction.intent}</p>
               </div>
-              <HeroIllustration variant={direction.id} />
+              <div className="visual-sample">
+                <ResearchVisual variant={direction.id} />
+              </div>
             </article>
           ))}
         </section>

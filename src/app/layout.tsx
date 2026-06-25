@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Theresia.ai - Autonomous Research by Isar Innovations",
   description:
-    "Theresia macht Quellen, Belege, offene Fragen und nächste Tests in einem prüfbaren Forschungsboard sichtbar.",
+    "Agentische Forschung macht aus ungelösten Problemen neue Marktchancen.",
 };
 
 export default function RootLayout({
