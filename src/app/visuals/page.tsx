@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ResearchVisual } from "@/components/ResearchVisual";
 
 export const metadata = {
-  title: "Hero Research Field - Theresia.ai",
-  description: "Art Direction für das Theresia.ai Hero-Research-Field Visual.",
+  title: "Hero Research Field - Theresia",
+  description: "Art Direction für das Theresia Hero-Research-Field Visual.",
 };
 
 const researchVisualDirections = [

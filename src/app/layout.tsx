@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Theresia.ai - Autonomous Research by Isar Innovations",
+  title: "Theresia - Turn Frontier Science into Market Advantage",
   description:
-    "Agentische Forschung macht aus ungelösten Problemen neue Marktchancen.",
+    "Theresia runs autonomous research agents that turn scientific papers into proof paths, product opportunities and IP for R&D teams.",
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

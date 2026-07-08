@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Impressum - Theresia.ai",
-  description: "Impressum der Isar Innovations GmbH für Theresia.ai.",
+  title: "Impressum - Theresia",
+  description: "Impressum der Isar Innovations GmbH für Theresia.",
 };
 
 export default function ImpressumPage() {
