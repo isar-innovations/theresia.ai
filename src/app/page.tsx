@@ -1,30 +1,30 @@
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowDown, ArrowRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const processSteps = [
   {
-    body: "Theresia scans scientific papers, technical sources and domain context around one high-value question.",
+    body: "Read scientific literature, technical sources and domain context.",
     label: "01",
     title: "Read",
   },
   {
-    body: "Agents identify links across disciplines that human teams would rarely explore manually.",
+    body: "Connect ideas across disciplines that rarely meet in manual review.",
     label: "02",
     title: "Connect",
   },
   {
-    body: "Weak hypotheses are tested, argued against and filtered out before they waste expert attention.",
+    body: "Challenge weak hypotheses before they waste expert attention.",
     label: "03",
     title: "Challenge",
   },
   {
-    body: "Promising paths are checked through sources, reasoning traces, simulations, code or formal proof where applicable.",
+    body: "Verify promising paths through evidence, code, simulation or proof.",
     label: "04",
     title: "Verify",
   },
   {
-    body: "The strongest direction becomes a research dossier, proof path, experiment plan, paper draft or IP-relevant technical path.",
+    body: "Package the result into a research dossier, proof path or IP direction.",
     label: "05",
     title: "Package",
   },
@@ -32,26 +32,43 @@ const processSteps = [
 
 const commercialSteps = [
   {
+    label: "Wedge",
     body: "For teams with one urgent research bottleneck and a clear decision to unlock.",
-    title: "Paid Research Sprints",
+    title: "Research Sprint",
   },
   {
+    label: "Expansion",
     body: "For teams that need a continuous pipeline of scientific opportunity and technical validation.",
-    title: "Recurring Research Partnerships",
+    title: "Research Partnership",
   },
   {
+    label: "Scale",
     body: "For sensitive R&D environments where IP, confidentiality and private deployment matter.",
-    title: "On-Premise Research Systems",
+    title: "Private R&D System",
   },
 ];
 
-const customerAreas = [
-  "DeepTech",
-  "AI infrastructure",
-  "Privacy and security",
-  "Industrial R&D",
-  "Automotive and robotics",
-  "Mathematics, physics, biology and applied science",
+const customerAudiences = [
+  "Technical founders",
+  "CTOs",
+  "R&D leaders",
+  "Industrial AI teams",
+  "Scientific product teams",
+];
+
+const comparisonRows = [
+  ["Find existing knowledge", "Generate new research paths"],
+  ["Summarize papers", "Challenge hypotheses"],
+  ["Answer questions", "Build proof-oriented outputs"],
+  ["User reviews everything", "Agents filter weak paths first"],
+];
+
+const moatLayers = [
+  "Literature-scale exploration",
+  "Cross-disciplinary hypothesis generation",
+  "Adversarial critique",
+  "Evidence, proof, simulation and code grounding",
+  "Private deployment for sensitive R&D",
 ];
 
 const proofLinks = [
@@ -136,18 +153,22 @@ export default function Home() {
             </a>
           </div>
         </div>
+        <a className="scroll-cue" href="#problem" aria-label="Scroll to the next section">
+          <ArrowDown size={15} aria-hidden="true" />
+        </a>
       </section>
 
       <section className="story-section problem-section" id="problem">
-        <div className="site-shell split-section">
-          <div className="section-copy">
-            <h2>R&amp;D teams are drowning in scientific knowledge.</h2>
-          </div>
-          <div className="section-body">
+        <div className="site-shell problem-centered">
+          <h2>R&amp;D teams are drowning in scientific knowledge.</h2>
+          <p className="problem-thesis">
+            Too many papers. Too few experts. Too many missed connections.
+          </p>
+          <div className="editorial-copy problem-copy-stack">
             <p>
               Every year, millions of papers are published across fields that rarely talk to each
-              other. The opportunities are there, but finding the right connection still depends on
-              slow manual review, scarce experts and months of exploratory work.
+              other. The opportunity is there, but finding the right connection still depends on slow
+              manual review and scarce senior expertise.
             </p>
             <p>
               The result: promising product paths stay hidden, technical bets are delayed, and
@@ -160,17 +181,17 @@ export default function Home() {
       <section className="story-section why-section">
         <div className="site-shell split-section">
           <div className="section-copy">
-            <h2>AI accelerated software. Research is next.</h2>
+            <h2>Software got agents. Research is next.</h2>
           </div>
           <div className="section-body">
-            <p>
-              Frontier models can now read, reason, critique and generate technical work at a level
-              that makes autonomous research workflows possible. But search and summary tools stop at
-              what is already known.
+            <p className="strong-copy">
+              Code generation compressed implementation cycles. Frontier models can now read,
+              reason, critique and generate technical work.
             </p>
             <p>
-              Theresia is built for the next step: turning scientific literature into new
-              hypotheses, proof paths and commercial opportunities.
+              Search tools summarize what is already known. Theresia is built for what comes after
+              summary: exploring possible proof paths, challenging them and finding the research
+              direction that can become a market advantage.
             </p>
           </div>
         </div>
@@ -217,10 +238,9 @@ export default function Home() {
           </div>
           <div className="section-body">
             <p>
-              A Research Sprint is a 2-4 week engagement around one high-value scientific or
-              technical question. It gives teams a concrete way to test whether Theresia can unlock
-              a product path, proof direction or IP-relevant opportunity before a larger
-              partnership.
+              A Research Sprint is a focused 2-4 week engagement around one high-value scientific or
+              technical question. It gives teams a concrete way to test whether Theresia can unlock a
+              product path, proof direction or IP-relevant opportunity before a larger partnership.
             </p>
             <p>
               The commercial path is simple: start with one focused question, expand into recurring
@@ -240,20 +260,16 @@ export default function Home() {
       </section>
 
       <section className="story-section customer-section">
-        <div className="site-shell split-section">
-          <div className="section-copy">
-            <h2>Built for teams where one research question can change the roadmap.</h2>
-          </div>
-          <div className="section-body">
-            <p>
-              Theresia is designed for technical founders, CTOs and R&amp;D leaders working on
-              high-value scientific uncertainty.
-            </p>
-            <div className="area-list">
-              {customerAreas.map((area) => (
-                <span key={area}>{area}</span>
-              ))}
-            </div>
+        <div className="site-shell customer-focus">
+          <h2>Built for teams where one research question can change the roadmap.</h2>
+          <p>
+            Theresia is designed for leaders working on high-value scientific uncertainty, where a
+            faster proof path can affect product direction, IP strategy or funding.
+          </p>
+          <div className="audience-pills" aria-label="Target audiences">
+            {customerAudiences.map((audience) => (
+              <span key={audience}>{audience}</span>
+            ))}
           </div>
         </div>
       </section>
@@ -269,7 +285,13 @@ export default function Home() {
           </div>
           <div className="proof-card-grid">
             {proofLinks.map((proof) => (
-              <a className="proof-card" href={proof.href} key={proof.title} rel="noreferrer" target="_blank">
+              <a
+                className="proof-card"
+                href={proof.href}
+                key={proof.title}
+                rel="noreferrer"
+                target="_blank"
+              >
                 <span>{proof.title}</span>
                 <p>{proof.body}</p>
                 <ExternalLink size={17} aria-hidden="true" />
@@ -280,40 +302,51 @@ export default function Home() {
       </section>
 
       <section className="story-section differentiation-section">
-        <div className="site-shell split-section">
-          <div className="section-copy">
+        <div className="site-shell">
+          <div className="section-heading">
             <h2>Search tools summarize what is known. Theresia explores what is not obvious yet.</h2>
-          </div>
-          <div className="section-body">
             <p>
               Perplexity, Elicit and Deep Research help teams find and summarize existing knowledge.
-              Theresia goes further: it generates hypotheses, challenges competing paths and turns
-              promising directions into proof-oriented outputs.
-            </p>
-            <p className="strong-copy">
-              The value is not faster reading. The value is finding the research path before
-              everyone else does.
+              Theresia goes further.
             </p>
           </div>
+          <div className="comparison-flow" aria-label="Search tools compared with Theresia">
+            <div className="comparison-flow-labels">
+              <span>Search &amp; summary tools</span>
+              <span>Theresia</span>
+            </div>
+            {comparisonRows.map(([searchTool, theresia]) => (
+              <div className="comparison-flow-row" key={searchTool}>
+                <span className="comparison-muted">{searchTool}</span>
+                <span className="comparison-bridge" aria-hidden="true" />
+                <span className="comparison-strong">{theresia}</span>
+              </div>
+            ))}
+          </div>
+          <p className="table-close">
+            The value is not faster reading. The value is finding the research path before everyone
+            else does.
+          </p>
         </div>
       </section>
 
       <section className="story-section moat-section">
-        <div className="site-shell split-section">
-          <div className="section-copy">
+        <div className="site-shell moat-layout">
+          <div className="section-heading">
             <h2>Research is not a single prompt.</h2>
-          </div>
-          <div className="section-body">
             <p>
               Theresia combines multi-agent exploration, adversarial review, paper-grounded
               reasoning and verification workflows into a system built specifically for scientific
               R&amp;D.
             </p>
-            <p>
-              The core advantage is cross-disciplinary search plus structured critique: agents can
-              explore connections across fields, discard weak paths and focus human experts on the
-              few directions worth reviewing.
-            </p>
+          </div>
+          <div className="moat-stack">
+            {moatLayers.map((layer, index) => (
+              <div className="moat-layer" key={layer}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{layer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
