@@ -111,13 +111,10 @@ export default function Home() {
             />
             <span>Theresia</span>
           </Link>
-          <a
-            className="nav-apply"
-            href="mailto:info@isar-innovations.dev?subject=Theresia%20Research%20Partnership"
-          >
+          <Link className="nav-apply" href="/apply/">
             <span>Apply</span>
             <ArrowRight size={16} aria-hidden="true" />
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -135,13 +132,10 @@ export default function Home() {
             research workflows.
           </p>
           <div className="hero-actions story-actions">
-            <a
-              className="primary-button"
-              href="mailto:info@isar-innovations.dev?subject=Theresia%20Research%20Partnership"
-            >
+            <Link className="primary-button" href="/apply/">
               <span>Apply for a Research Partnership</span>
               <ArrowRight size={18} aria-hidden="true" />
-            </a>
+            </Link>
             <a
               className="secondary-button"
               href="https://isar-innovations.dev/research.html#de"
@@ -359,13 +353,10 @@ export default function Home() {
             that can become product paths, proofs or IP.
           </p>
           <div className="hero-actions story-actions">
-            <a
-              className="primary-button"
-              href="mailto:info@isar-innovations.dev?subject=Theresia%20Research%20Partnership"
-            >
+            <Link className="primary-button" href="/apply/">
               <span>Apply for a Research Partnership</span>
               <ArrowRight size={18} aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

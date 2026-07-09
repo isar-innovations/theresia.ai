@@ -55,6 +55,19 @@ Once `package.json` exists, keep these commands available:
 
 The production site is deployed on Vercel. Vercel should use the default Next.js settings: install with `npm install`, build with `npm run build`, and leave the output directory empty so Vercel handles the Next.js build output natively.
 
+## Environment Variables
+
+The apply form sends research partnership requests through SMTP. Configure these variables in Vercel:
+
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
+- `SMTP_FROM`
+- `CONTACT_TO`
+
+Use [`.env.example`](./.env.example) as the local reference.
+
 ## Repository Notes
 
 Contributor and agent guidance lives in [`AGENTS.md`](./AGENTS.md). Keep product direction, stack decisions, and implementation conventions updated there as the repository matures.
