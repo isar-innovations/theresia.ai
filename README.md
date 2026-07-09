@@ -29,7 +29,7 @@ Do not copy Search Party branding, copy, images, or layout one-to-one. Theresia 
 - Next.js
 - TypeScript
 - Postgres
-- GitHub Pages static deployment
+- Vercel deployment
 
 Prefer the Next.js App Router, typed server boundaries, and a structure that can grow from landing page to full product.
 
@@ -48,11 +48,12 @@ Once `package.json` exists, keep these commands available:
 
 - `npm run dev`: start local development.
 - `npm run build`: create a production build.
+- `npm run start`: run the production build locally.
 - `npm run lint`: run lint checks.
 - `npm run typecheck`: validate TypeScript.
 - `npm test`: run the test suite.
 
-`next.config.ts` is configured with `output: "export"` so the build emits a static site in `out/` for GitHub Pages. The deployment workflow lives in `.github/workflows/deploy.yml`.
+The production site is deployed on Vercel. Vercel should use the default Next.js settings: install with `npm install`, build with `npm run build`, and leave the output directory empty so Vercel handles the Next.js build output natively.
 
 ## Repository Notes
 

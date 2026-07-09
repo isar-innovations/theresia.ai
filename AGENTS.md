@@ -27,12 +27,13 @@ Keep these commands available once `package.json` exists:
 - `npm install`: install project dependencies.
 - `npm run dev`: start local Next.js development.
 - `npm run build`: create a production build.
+- `npm run start`: run the production build locally.
 - `npm run lint`: run ESLint checks.
 - `npm run typecheck`: run TypeScript without emitting files.
 - `npm test`: run the test suite.
 - `npm run db:migrate`: apply Postgres migrations.
 
-The site targets GitHub Pages via static export. Keep `next.config.ts` export-safe and avoid runtime-only server features on public routes.
+The site deploys to Vercel using the native Next.js build output. Do not configure `output: "export"` or add GitHub Pages deployment artifacts unless the hosting target changes again.
 
 ## Coding Style & Naming Conventions
 Use TypeScript throughout. Prefer function components, explicit server/client boundaries, and typed data access. Name React components in `PascalCase`, hooks as `useThing`, utilities in `camelCase`, and route folders in lowercase kebab-case. Use Prettier and ESLint.
