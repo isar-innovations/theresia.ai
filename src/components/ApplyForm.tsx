@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { FormEvent, useState } from "react";
+import type { ApplyFormCopy } from "@/lib/i18n";
 
 type FormValues = {
   company: string;
@@ -13,6 +14,10 @@ type FormValues = {
 
 type SubmitState = "error" | "idle" | "submitting" | "success";
 
+type ApplyFormProps = {
+  copy: ApplyFormCopy;
+};
+
 const initialValues: FormValues = {
   company: "",
   email: "",
@@ -21,19 +26,19 @@ const initialValues: FormValues = {
   website: "",
 };
 
-function errorMessageFor(status: number) {
+function errorMessageFor(status: number, copy: ApplyFormCopy) {
   if (status === 429) {
-    return "Too many submissions in a short time. Please try again in a few minutes.";
+    return copy.errors.rateLimited;
   }
 
   if (status === 400) {
-    return "Please check the form and fill in all required fields.";
+    return copy.errors.validation;
   }
 
-  return "We could not send the form right now. Please try again later.";
+  return copy.errors.default;
 }
 
-export function ApplyForm() {
+export function ApplyForm({ copy }: ApplyFormProps) {
   const [formValues, setFormValues] = useState<FormValues>(initialValues);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -55,7 +60,7 @@ export function ApplyForm() {
 
       if (!response.ok || !result.ok) {
         setSubmitState("error");
-        setErrorMessage(errorMessageFor(response.status));
+        setErrorMessage(errorMessageFor(response.status, copy));
         return;
       }
 
@@ -63,7 +68,7 @@ export function ApplyForm() {
       setSubmitState("success");
     } catch {
       setSubmitState("error");
-      setErrorMessage("We could not send the form right now. Please try again later.");
+      setErrorMessage(copy.errors.default);
     }
   }
 
@@ -78,7 +83,7 @@ export function ApplyForm() {
     <form className="apply-form" onSubmit={handleSubmit}>
       <div className="apply-field-grid">
         <label>
-          <span>Name</span>
+          <span>{copy.name}</span>
           <input
             autoComplete="name"
             maxLength={120}
@@ -90,7 +95,7 @@ export function ApplyForm() {
           />
         </label>
         <label>
-          <span>Email</span>
+          <span>{copy.email}</span>
           <input
             autoComplete="email"
             maxLength={180}
@@ -103,7 +108,7 @@ export function ApplyForm() {
         </label>
       </div>
       <label>
-        <span>Company</span>
+        <span>{copy.company}</span>
         <input
           autoComplete="organization"
           maxLength={160}
@@ -115,7 +120,7 @@ export function ApplyForm() {
         />
       </label>
       <label>
-        <span>What research question should we look at?</span>
+        <span>{copy.message}</span>
         <textarea
           maxLength={4000}
           name="message"
@@ -127,7 +132,7 @@ export function ApplyForm() {
       </label>
       <div className="form-honeypot" aria-hidden="true">
         <label>
-          <span>Website</span>
+          <span>{copy.website}</span>
           <input
             autoComplete="off"
             name="website"
@@ -144,19 +149,13 @@ export function ApplyForm() {
           disabled={submitState === "submitting"}
           type="submit"
         >
-          <span>{submitState === "submitting" ? "Sending..." : "Send application"}</span>
+          <span>{submitState === "submitting" ? copy.submitting : copy.submit}</span>
           <ArrowRight size={18} aria-hidden="true" />
         </button>
-        <p className="apply-form-note">
-          We review every application manually and reply when the question is a good fit.
-        </p>
+        <p className="apply-form-note">{copy.note}</p>
       </div>
       <div className="apply-form-status" aria-live="polite">
-        {submitState === "success" ? (
-          <p className="apply-success">
-            Thanks. Your application has been sent. We will review it and get back to you.
-          </p>
-        ) : null}
+        {submitState === "success" ? <p className="apply-success">{copy.success}</p> : null}
         {submitState === "error" ? <p className="apply-error">{errorMessage}</p> : null}
       </div>
     </form>

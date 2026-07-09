@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import { defaultLocale } from "@/lib/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Theresia - Turn Frontier Science into Market Advantage",
+  metadataBase: new URL("https://theresia.ai"),
+  title: {
+    default: "Theresia",
+    template: "%s",
+  },
   description:
     "Theresia runs autonomous research agents that turn scientific papers into proof paths, product opportunities and IP for R&D teams.",
 };
@@ -13,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang={defaultLocale}>
       <body>{children}</body>
     </html>
   );
